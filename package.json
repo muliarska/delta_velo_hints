@@ -1,0 +1,23 @@
+{
+  "name": "react-leaflet-routing-machine",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "leaflet": "1.5.1",
+    "leaflet-routing-machine": "3.2.12",
+    "lrm-google": "1.0.1",
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
+    "react-leaflet": "2.0.1",
+    "react-scripts": "1.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
