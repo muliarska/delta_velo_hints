@@ -1,0 +1,49 @@
+.signUpWrapper {
+    grid-area: a;
+    align-self: center;
+    justify-self: center;
+    min-width: 350px;
+    padding: 50px;
+    border: 5px solid white;
+    border-radius: 4px;
+}
+
+.signUpForm {
+    display: grid;
+    row-gap: 5px;
+    grid-template-rows: 30px 30px;
+    grid-template-columns: minmax(50px, 100px) minmax(100px, 200);
+    color: white;
+    /*border-color: white;*/
+}
+
+.label {
+    grid-area: label;
+    color: white;
+}
+
+.labelSignUp {
+    font-size: 23px;
+}
+
+.input {
+    grid-area: input;
+    color: white;
+}
+
+.inputSignUp {
+    height: 30px;
+}
+
+.buttonSignUp {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 0px 20%;
+    height: 50px;
+}

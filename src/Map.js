@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect, useRef } from "react";
-import { Map, TileLayer, withLeaflet, MapControl, Marker, Popup, LeafletConsumer } from "react-leaflet";
+import { Map, TileLayer, withLeaflet, MapControl, Marker, Popup, LeafletConsumer, MapLayer } from "react-leaflet";
 import MapInfo from "./MapInfo";
 import Routing from "./RoutingMachine";
 import L from "leaflet";
@@ -55,7 +55,10 @@ function cancelRoute(layer) {
   console.log("canceling route");
   cancelRouteButton.style.display = 'none';
   startMenuButton.style.display = 'inline-block';
-  removeRoute(route)
+
+  if (route) {
+    route.removeRoute(route)
+  }
 }
 
 
@@ -92,8 +95,8 @@ function makeReport(markers) {
   closeButtonReport.onclick = function(event) {
     modal.style.display = "none";
     console.log("Closing")
-    markers.pop();
     startMenuButton.style.display = 'inline-block';
+    markers.pop();
   }
 
   return response;
@@ -127,7 +130,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
     startMenuButton.style.display = 'inline-block';
   }
-  if (event.target == directionsStart) {
+  else if (event.target == directionsStart) {
     directionsStart.style.display = "none";
     startMenuButton.style.display = 'inline-block';
   }
@@ -144,60 +147,69 @@ cancelRouteButton.onclick = function(event) {
 }
 
 
-function createRoute(markers) {
-  let leafletElement = L.Routing.control({
-    router: L.Routing.mapbox(accessToken, {
-      unit: 'metric',
-      profile : 'mapbox/cycling',
-      language: 'en',
-      alternatives: true,
-      geometries: 'geojson',
-      controls: { instructions: false },
-      flyTo: false
-    }),
-    waypoints: [
-      L.latLng(markers[0]['position']),
-      L.latLng(markers[1]['position'])
-    ],
-    lineOptions: {
-      styles: [
-        {
-          color: "gray",
-          opacity: 0.7,
-          weight: 6
-        }
-      ]
-    },
-    addWaypoints: false,
-    draggableWaypoints: false,
-    fitSelectedRoutes: false,
-    showAlternatives: true
-  }).addTo(map.leafletElement);
-  leafletElement.hide();
+class Route {
+  constructor(markers) {
+    // super();
+    this.route = NaN;
+    this.markers = markers;
+    this.createRoute();
+  }
 
-  // handleFlyTo();
-  // function handleFlyTo() {
-  //   const { current = {} } = useRef();
-  //   const { leafletElement: map } = current;
-  //   map.flyTo(markers[0]['position'], 14);
-  // }
+  createRoute() {
+    this.route = L.Routing.control({
+      router: L.Routing.mapbox(accessToken, {
+        unit: 'metric',
+        profile : 'mapbox/cycling',
+        language: 'en',
+        alternatives: true,
+        geometries: 'geojson',
+        controls: { instructions: false },
+        flyTo: false
+      }),
+      waypoints: [
+        L.latLng(this.markers[0]['position']),
+        L.latLng(this.markers[1]['position'])
+      ],
+      lineOptions: {
+        styles: [
+          {
+            color: "gray",
+            opacity: 0.7,
+            weight: 6
+          }
+        ]
+      },
+      addWaypoints: false,
+      draggableWaypoints: false,
+      fitSelectedRoutes: false,
+      showAlternatives: true
+    }).addTo(map.leafletElement);
+    this.route.hide();
 
-  routing = false;
-  // .flyTo(markers[0]['position']);
+    // handleFlyTo();
+    // function handleFlyTo() {
+      // const { current = {} } = useRef();
+      // const { leafletElement: map } = useRef(null);
+      // map.flyTo(markers[0]['position'], 14);
+    // }
 
-  return leafletElement;
+    routing = false;
+    // .flyTo(markers[0]['position']);
+
+    return this.route;
+  }
+
+  removeRoute() {
+    this.route.remove();
+  }
 }
 
-
-function removeRoute(route) {
-  route.remove();
-}
 
 
 function getIcon(name) {
   return L.icon({
     iconUrl: require('./marker_icons/' + name + '.png'),
-    iconSize: [40]
+    iconSize: [40, 40]
   })
 }
 
@@ -251,15 +263,16 @@ class MapComponent extends React.Component {
       this.setState({markers})
       
     } else {
-      const {routing_markers} = this.state
+      var {routing_markers} = this.state
 
       routing_markers.push({
-        'name': 'route-mark', 
+        'name': 'badRoad', 
         'position': coordinates
       })
       
       if (routing_markers.length == 2) {
-        route = createRoute(routing_markers);
+        route = new Route(routing_markers);
+        routing_markers = []
       }
       this.setState({routing_markers})
     }
@@ -277,7 +290,10 @@ class MapComponent extends React.Component {
         zoom={zoom} 
 
         onClick={this.addMarker} 
-        ref={this.saveMap}>
+        ref={this.saveMap}
+
+        >
+
 
         <TileLayer
           // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -298,7 +314,7 @@ class MapComponent extends React.Component {
         ))}
 
 
-        {this.state.routing_markers.map((location, idx) => (
+        {/* {this.state.routing_markers.map((location, idx) => (
           <Marker 
             key={`marker-${idx}`} 
             position={location.position} 
@@ -309,7 +325,7 @@ class MapComponent extends React.Component {
               {location.name}
             </Popup>
           </Marker>
-        ))}
+        ))} */}
 
       </Map>
     );

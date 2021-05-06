@@ -1,0 +1,11 @@
+.login-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-auto-rows: 350px;
+    grid-template-areas:
+      ". a a ."
+      ". a a .";
+    background-image: url('images/background.jpg');
+    background-size: 50% 100%;
+}
