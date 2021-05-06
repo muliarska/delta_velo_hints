@@ -11,17 +11,17 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
 
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
     />
-    <script
+    <!-- <script
       type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWMNlDXolxfFVyAgDH64JzEaoodXi7AbE"
-    ></script>
+    ></script> -->
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -38,6 +38,63 @@
 
     <title>React App</title>
   </head>
+
+
+  <!-- The Marker Popup -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p><button id="badRoadReportButton" class="report">Bad Road</button></p>
+        <p><button id="accidentReportButton" class="report">Accident</button></p>
+        <p><button id="parkingPlaceReportButton" class="report">Parking Place</button></p>
+        <p><button id="closeButtonReport" class="report">Close</button></p>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- The Directions_Start Popup -->
+  <div id="directionsStart" class="directions_start">
+
+    <!-- Modal content -->
+    <div class="directions_start-content">
+      <div class="directions_start-header">
+        <span class="close">&times;</span>
+      </div>
+      <div class="directions_start-body">
+        <div class="bottom-section">
+          <a id="startNewRouteButton" class="link_start">START NEW ROUTE</a>
+          <a id="closeButton" class="link_close">CLOSE</a>
+        </div>
+      </div>
+      <div class="directions_start-footer">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="top-section">
+      <!-- <p><button id="cancelRouteButton" class="route">Cancel Route</button></p> -->
+      <a id="startMenuButton" class="routeMenu">Start</a>
+      <a id="cancelRouteButton" class="routeCancel">Cancel Route</a>
+    </div>
+  </div>
+
+
+  <div id='map'></div>
+
+
 
   <body>
     <noscript>
