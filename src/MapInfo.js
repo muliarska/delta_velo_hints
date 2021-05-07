@@ -15,9 +15,7 @@ class MapInfo extends MapControl {
 
   createLeafletElement(opts) {
     const dir = window.MQ.routing.directions();
-    dir.route({
-      locations: ["Hyderabad", "Tirupati", "Chennai"]
-    });
+    dir.route({});
     return () =>
       window.MQ.routing.routeLayer({
         directions: dir,

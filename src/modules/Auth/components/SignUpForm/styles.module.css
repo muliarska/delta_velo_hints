@@ -1,20 +1,19 @@
 .signUpWrapper {
     grid-area: a;
+    position: relative;
+    top: 135px;
     align-self: center;
     justify-self: center;
     min-width: 350px;
     padding: 50px;
-    border: 5px solid white;
     border-radius: 4px;
 }
 
 .signUpForm {
     display: grid;
-    row-gap: 5px;
-    grid-template-rows: 30px 30px;
-    grid-template-columns: minmax(50px, 100px) minmax(100px, 200);
+    row-gap: 35px;
+    grid-template-rows: 35px 35px 45px 30px ;
     color: white;
-    /*border-color: white;*/
 }
 
 .label {
@@ -36,6 +35,11 @@
 }
 
 .buttonSignUp {
+    background-color: black;
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2em;
+    box-sizing: border-box;
     background-color: black;
     border: none;
     color: white;

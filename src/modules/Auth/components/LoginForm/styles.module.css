@@ -1,20 +1,19 @@
 .loginWrapper {
     grid-area: a;
+    position: relative;
+    top: 135px;
     align-self: center;
     justify-self: center;
     min-width: 350px;
     padding: 50px;
-    /* border: 5px solid white; */
     border-radius: 4px;
 }
 
 .loginForm {
     display: grid;
-    row-gap: 5px;
-    grid-template-rows: 30px 30px;
-    grid-template-columns: minmax(50px, 100px) minmax(100px, 200);
+    row-gap: 35px;
+    grid-template-rows: 35px 45px 30px 30px;
     color: white;
-    /*border-color: white;*/
 }
 
 .label {
@@ -28,9 +27,65 @@
 
 .input {
     grid-area: input;
-    color: white;
+    color: white
 }
 
+[type='password'] {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-width: calc(var(--border-width) * 1px);
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: 12px;
+    text-align: center;
+    outline: transparent;
+    /* width: 100%; */
+    transition: border-color calc(var(--transition, 0.2) * 1s) ease;
+}
+[type='password']:placeholder-shown {
+    --accent: rgb(0, 0, 0); 
+}
+
+[type='name'] {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-width: calc(var(--border-width) * 1px);
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: 12px;
+    text-align: center;
+    outline: transparent;
+    /* width: 100%; */
+    transition: border-color calc(var(--transition, 0.2) * 1s) ease;
+}
+[type='name']:placeholder-shown {
+    --accent: rgb(0, 0, 0); 
+}
+
+[type='email'] {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-width: calc(var(--border-width) * 1px);
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: 12px;
+    text-align: center;
+    outline: transparent;
+    /* width: 100%; */
+    transition: border-color calc(var(--transition, 0.2) * 1s) ease;
+}
+[type='email']:invalid {
+    --accent: rgb(194, 32, 0);
+}
+[type='email']:valid {
+    --accent: rgb(0, 204, 51);
+    --border-width: 4
+}
+[type='email']:placeholder-shown {
+    --accent: rgb(0, 0, 0); 
+}
+
+  
 .inputLogin {
     height: 30px;
 }
@@ -53,6 +108,7 @@
 }
 
 .signUp {
+    position: relative;
     text-align: center;
 }
 

@@ -3,15 +3,10 @@ import styles from "./styles.module.css";
 const LoginForm = () => (
   <div className={styles.loginWrapper}>
     <form className={styles.loginForm}>
-      <label className={styles.labelLogin} htmlFor="email">
-        Email:
-      </label>
-      <input id="email" type="email" className={styles.inputLogin} />
 
-      <label className={styles.labelLogin} htmlFor="password">
-        Password:
-      </label>
-      <input id="password" type="password" className={styles.inputLogin} />
+      <input id="email" type="email" placeholder="Enter your email" required="required" className={styles.inputLogin} />
+
+      <input id="password" type="password" placeholder="Enter your password" required="required" className={styles.inputLogin} />
       {/* eslint-disable-next-line react/button-has-type */}
       <button id="" className={styles.buttonSubmit}>
         {" "}Login{" "}

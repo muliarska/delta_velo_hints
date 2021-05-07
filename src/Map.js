@@ -207,6 +207,7 @@ class Route {
 
 
 function getIcon(name) {
+  console.log('./marker_icons/' + name + '.png');
   return L.icon({
     iconUrl: require('./marker_icons/' + name + '.png'),
     iconSize: [40, 40]
@@ -257,7 +258,7 @@ class MapComponent extends React.Component {
       this.forceUpdateHandler();
       console.log(resp)
       markers.push({
-        'name': 'marker', 
+        'name': 'badRoad', 
         'position': coordinates
       })
       this.setState({markers})
@@ -266,7 +267,7 @@ class MapComponent extends React.Component {
       var {routing_markers} = this.state
 
       routing_markers.push({
-        'name': 'badRoad', 
+        'name': 'marker', 
         'position': coordinates
       })
       
@@ -304,7 +305,7 @@ class MapComponent extends React.Component {
           <Marker 
             key={`marker-${idx}`} 
             position={location.position} 
-            // icon={getIcon(location.name)}
+            icon={getIcon(location.name)}
             >
               
             <Popup>
