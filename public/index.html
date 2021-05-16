@@ -2,26 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-    -->
-    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
     />
-    <!-- <script
-      type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWMNlDXolxfFVyAgDH64JzEaoodXi7AbE"
-    ></script> -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -31,79 +24,11 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css"
-    />
-
     <title>React App</title>
   </head>
-
-
-  <!-- The Marker Popup -->
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">&times;</span>
-      </div>
-      <div class="modal-body">
-        <p><button id="badRoadReportButton" class="report">Bad Road</button></p>
-        <p><button id="accidentReportButton" class="report">Accident</button></p>
-        <p><button id="parkingPlaceReportButton" class="report">Parking Place</button></p>
-        <p><button id="closeButtonReport" class="report">Close</button></p>
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-
-  </div>
-
-
-
-
-  <!-- The Directions_Start Popup -->
-  <div id="directionsStart" class="directions_start">
-
-    <!-- Modal content -->
-    <div class="directions_start-content">
-      <div class="directions_start-header">
-        <span class="close">&times;</span>
-      </div>
-      <div class="directions_start-body">
-        <div class="bottom-section">
-          <a id="startNewRouteButton" class="link_start">START NEW ROUTE</a>
-          <a id="closeButton" class="link_close">CLOSE</a>
-        </div>
-      </div>
-      <div class="directions_start-footer">
-      </div>
-    </div>
-  </div>
-
-
-  <div class="container">
-    <div class="top-section">
-      <!-- <p><button id="cancelRouteButton" class="route">Cancel Route</button></p> -->
-      <a id="startMenuButton" class="routeMenu">Start</a>
-      <a id="cancelRouteButton" class="routeCancel">Cancel Route</a>
-    </div>
-  </div>
-
-
-  <div id='map'></div>
-
-
-
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
-    <script src="https://open.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=IXeUegckPazCD4BEWR2CHZ494kZQdwBI"></script>
-    <script src="https://open.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=IXeUegckPazCD4BEWR2CHZ494kZQdwBI"></script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
