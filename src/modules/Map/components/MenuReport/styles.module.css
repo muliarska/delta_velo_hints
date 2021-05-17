@@ -1,5 +1,5 @@
 .modal {
-    /*display: none; !* Hidden by default *!*/
+    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -15,16 +15,16 @@
     animation-duration: 0.5s
 }
 
-/*.modalContent {*/
-/*    position: fixed;*/
-/*    bottom: 0;*/
-/*    background-color: #fefefe;*/
-/*    width: 100%;*/
-/*    -webkit-animation-name: slideIn;*/
-/*    -webkit-animation-duration: 0.5s;*/
-/*    animation-name: slideIn;*/
-/*    animation-duration: 0.5s*/
-/*}*/
+.modalContent {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.5s;
+    animation-name: slideIn;
+    animation-duration: 0.5s
+}
 
 .modalBody {
     padding: 20px 20px;

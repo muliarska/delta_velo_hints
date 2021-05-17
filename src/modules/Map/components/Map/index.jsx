@@ -2,19 +2,21 @@ import React from "react";
 import { TileLayer, Marker, Popup, Map} from "react-leaflet";
 import L from "leaflet";
 import "leaflet-routing-machine";
+import './styles.module.css';
 
 
 const accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
 
 const lat = 49.918313;
 const lng = 24.182573;
-const zoom = 8;
+const zoom = 12;
 const position = [lat, lng];
+
 
 export default function MapComponent () {
     return (
-        <div>
-        <Map className='map'
+        <Map className={'map'}
+             style={{ height: 950 }} // TODO: fix in css
              center={position}
              zoom={zoom}>
 
@@ -22,8 +24,13 @@ export default function MapComponent () {
                 // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 url="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2xhdmtvcHJ5dHVsYSIsImEiOiJja281cnRmdjQwODl5MnZwZGdmeW1hb3N3In0.mhPtHgPEkyIHhGCQcNJNlA"
             />
+
+            <Marker position={position}>
+                <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                </Popup>
+            </Marker>
         </Map>
-    </div>
     )
 };
 
