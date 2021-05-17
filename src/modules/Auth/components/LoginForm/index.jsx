@@ -1,4 +1,6 @@
 import styles from "./styles.module.css";
+import styles_forms from "../styles/styles_forms.module.css";
+
 import { useHistory } from 'react-router-dom';
 
 
@@ -14,12 +16,12 @@ function LoginForm() {
     }
 
     return (
-        <div className={styles.loginWrapper}>
-            <form className={styles.loginForm}>
+        <div className={styles_forms.signUpWrapper}>
+            <form className={styles_forms.signUpForm}>
 
-                <input id="email" type="email" placeholder="Enter your email" required="required" className={styles.inputLogin} />
+                <input id="email" type="email" placeholder="Enter your email" required="required" className={styles_forms.inputSignUp} />
 
-                <input id="password" type="password" placeholder="Enter your password" required="required" className={styles.inputLogin} />
+                <input id="password" type="password" placeholder="Enter your password" required="required" className={styles_forms.inputSignUp} />
                 {/* eslint-disable-next-line react/button-has-type */}
                 <button id="" className={styles.buttonSubmit} onClick={redirectMap}>
                     {" "}Login{" "}

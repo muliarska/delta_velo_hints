@@ -4,30 +4,32 @@ import Header from "../Header"
 import Footer from "../Footer"
 import Map from "../Map"
 
-const MenuReport = () => (
-    <div id="myModal" className={styles.modal}>
 
-        <div className={styles.modalContent}>
-            <Header />
-            <div className={styles.modalBody}>
-                <p>
-                    <button id="badRoadReportButton" className={styles.report}>Bad Road</button>
-                </p>
-                <p>
-                    <button id="accidentReportButton" className={styles.report}>Accident</button>
-                </p>
-                <p>
-                    <button id="parkingPlaceReportButton" className={styles.report}>Parking Place</button>
-                </p>
-                <p>
-                    <button id="closeButtonReport" className={styles.report}>Close</button>
-                </p>
+function MenuReport() {
+    return (
+        <div id="myModal" className={styles.modal}>
+
+            <div className={styles.modalContent}>
+                <Header />
+                <div className={styles.modalBody}>
+                    <p>
+                        <a id="badRoadReportButton" className={styles.report}>Bad Road</a>
+                    </p>
+                    <p>
+                        <a id="accidentReportButton" className={styles.report}>Accident</a>
+                    </p>
+                    <p>
+                        <a id="parkingPlaceReportButton" className={styles.report}>Parking Place</a>
+                    </p>
+                    <p>
+                        <a id="closeButtonReport" className={styles.report}>Close</a>
+                    </p>
+                </div>
+                <Footer />
+                <Map />
             </div>
-            <Footer />
-            <Map />
         </div>
-    </div>
-
-);
+    )
+}
 
 export default MenuReport;

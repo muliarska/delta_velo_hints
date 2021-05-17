@@ -13,6 +13,6 @@
   grid-template-areas:
     ". a a ."
     ". a a .";
-  background-image: url('../background/background.jpg');
+  background-image: url('../../assets/background/background.jpg');
   background-size: 100%;
 }
