@@ -1,7 +1,7 @@
 import React from 'react';
 import { Map as ImmutableMap } from 'immutable';
 import PropTypes from 'prop-types';
-import InitMarker from "./../../modules/assets/icon/marker.png";
+import InitMarker from "../../../assets/icon/marker.png";
 
 import './styles.css';
 

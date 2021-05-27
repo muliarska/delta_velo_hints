@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Map as ImmutableMap } from 'immutable';
 import { connect } from 'react-redux';
 
-import { deleteMarker } from './../../actions';
-import ViewPopup from './../../components/ViewPopup';
-import EditContainer from './../EditContainer';
+import { deleteMarker } from '../../actions';
+import ViewPopup from '../../components/ViewPopup';
+import EditContainer from '../EditContainer';
 
 class PopupContainer extends Component {
   constructor(props) {
