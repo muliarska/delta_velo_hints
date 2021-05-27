@@ -1,0 +1,1 @@
+export const addMarkerItem = "ADD_MARKER_ITEM";
