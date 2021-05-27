@@ -1,0 +1,14 @@
+.marker-name {
+  position:  absolute;
+  top: 25%;
+  left: 10%;
+}
+
+.popup .popup-button-container {
+  position:  absolute;
+  width: 280px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

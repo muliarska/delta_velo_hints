@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import styles_forms from "../styles/styles_forms.module.css";
 import {useHistory} from "react-router-dom";
+import React from 'react';
 
 function SignUpForm() {
     let history = useHistory();
