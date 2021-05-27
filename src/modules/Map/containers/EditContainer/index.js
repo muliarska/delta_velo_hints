@@ -5,7 +5,7 @@ import { Map as ImmutableMap } from 'immutable';
 import { connect } from 'react-redux';
 
 import { updateMarker } from '../../actions';
-import EditPopup from './../../components/EditPopup';
+import EditPopup from '../../components/EditPopup';
 
 class EditContainer extends Component {
   constructor(props) {

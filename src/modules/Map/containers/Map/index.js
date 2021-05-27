@@ -6,7 +6,7 @@ import { Map, TileLayer } from 'react-leaflet';
 import { createMarker } from '../../actions';
 import MarkersContainer from '../MarkersContainer';
 
-import InitMarker from "./../../modules/assets/icon/marker.png";
+import InitMarker from "../../../assets/icon/marker.png";
 
 
 const token = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2xhdmtvcHJ5dHVsYSIsImEiOiJja281cnRmdjQwODl5MnZwZGdmeW1hb3N3In0.mhPtHgPEkyIHhGCQcNJNlA";

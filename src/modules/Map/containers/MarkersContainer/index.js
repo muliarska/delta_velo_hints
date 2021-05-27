@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import { List } from 'immutable';
 import { Marker } from 'react-leaflet';
 
-import { getMarkers } from './../../actions';
-import PopupContainer from './../PopupContainer';
+import { getMarkers } from '../../actions';
+import PopupContainer from '../PopupContainer';
 
 class MarkersContainer extends Component {
 
