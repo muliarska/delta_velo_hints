@@ -12,8 +12,8 @@ function LoginForm() {
         email: "",
         password: "",
         errors: {
-            email: "",
-            password: ""
+            email: "empty email",
+            password: "empty password"
         }
     };
 
@@ -26,16 +26,21 @@ function LoginForm() {
 
     const validate = (ev) => {
         const {name, value} = ev.target;
-
         switch(name) {
             case 'email':
-                if (!('@' in value) || value.length < 7){
+                if ((value.split("@").length !== 2) || value.length < 7){
                     state.errors.email = "Not valid email!";
+                }
+                else {
+                    state.errors.email = "valid"
                 }
                 break;
             case 'password':
-                if (value < 5){
+                if (value.length < 5){
                     state.errors.password = "Password is too short!"
+                }
+                else {
+                    state.errors.password = "valid";
                 }
                 break;
             default:
@@ -50,7 +55,16 @@ function LoginForm() {
 
 
     const redirectMap = () => {
-        history.push('/map')
+        if(state.errors.email === "valid" &&
+            state.errors.password ==="valid" ) {
+            history.push('/map');
+        }
+        else {
+            if (state.errors.email !== "valid")
+                alert(state.errors.email);
+            if (state.errors.password !== "valid")
+                alert(state.errors.password);
+        }
     }
 
     const redirectSignIn = () => {
@@ -58,18 +72,16 @@ function LoginForm() {
     }
 
     return (
-        <div className={styles_forms.signUpWrapper}>
+         <div className={styles_forms.signUpWrapper}>
             <form className={styles_forms.signUpForm} onSubmit={event => onSubmit(event)}>
 
-                <input id="email" type="email" placeholder="Enter your email" required="required" className={styles_forms.inputSignUp}
+                <input id="email" type="email" name={"email"} required placeholder="Enter your email" className={styles_forms.inputSignUp}
                        onChange={e => handleChange(e)} onBlur={e => validate(e)}/>
-                {state.errors.email && <span>{state.errors.email}</span>}
-                <input id="password" type="password" placeholder="Enter your password" required="required" className={styles_forms.inputSignUp}
+                <input id="password" type="password" name={"password"} required placeholder="Enter your password" className={styles_forms.inputSignUp}
                        onChange={e => handleChange(e)} onBlur={e => validate(e)}/>
-                {state.errors.password && <span>{state.errors.password}</span>}
 
                 {/* eslint-disable-next-line react/button-has-type */}
-                <button id="" className={styles.buttonSubmit} onClick={redirectMap}>
+                <button id="button" className={styles_forms.buttonSignUp} onClick={redirectMap}>
                     {" "}Login{" "}
                 </button>
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}

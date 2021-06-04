@@ -33,3 +33,53 @@
 .inputSignUp {
     height: 30px;
 }
+
+
+.buttonSignUp {
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 0px 20%;
+    height: 50px;
+}
+
+
+[type='password'], [type='name'], [type='email'] {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-width: calc(var(--border-width) * 1px);
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: 12px;
+    text-align: center;
+    outline: transparent;
+    /* width: 100%; */
+    transition: border-color calc(var(--transition, 0.2) * 1s) ease;
+}
+
+
+[type='password']:placeholder-shown,
+[type='name']:placeholder-shown,
+[type='email']:placeholder-shown {
+    --accent: rgb(0, 0, 0);
+}
+
+
+[type='email']:invalid {
+    --accent: rgb(194, 32, 0);
+}
+[type='email']:valid {
+    --accent: rgb(0, 204, 51);
+    --border-width: 4
+}
+
+
