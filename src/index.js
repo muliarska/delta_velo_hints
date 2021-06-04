@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import './index.css';
 
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import LoginView from "./views/LoginView";
 import SignUpView from "./views/SignUpView";
 import MapView from "./views/MapView"

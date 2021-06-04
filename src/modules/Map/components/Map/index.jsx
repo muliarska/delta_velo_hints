@@ -9,13 +9,11 @@ import Routing from "../Routing"
 
 import InitMarker from "../../../assets/icon/marker.png";
 
-import store from "../../../../store"
 
-
-let counter = 0;
+let counter = 0
 const token = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2xhdmtvcHJ5dHVsYSIsImEiOiJja281cnRmdjQwODl5MnZwZGdmeW1hb3N3In0.mhPtHgPEkyIHhGCQcNJNlA";
 
-class MyMap extends Component { 
+class MyMap extends Component {
   constructor(props) {
     super(props);
     this.handleMapClick = this.handleMapClick.bind(this);
@@ -32,23 +30,20 @@ class MyMap extends Component {
       isMapInit: false
     }
   }
-  
+
   handleMapClick(e) {
     counter++;
     const marker = {
       title: 'NewMarker',
       logo: InitMarker,
       id: Math.random()
-        .toString(36)
-        .substr(2, 9),
+          .toString(36)
+          .substr(2, 9),
       lat: e.latlng.lat,
       lng: e.latlng.lng
     };
 
     this.props.createMarker(marker);
-    store.getState()
-    console.log("hello")
-    console.log(store.getState())
   }
 
   saveMap = map => {
@@ -62,29 +57,29 @@ class MyMap extends Component {
     const position = [this.state.lat, this.state.lng];
     const { markers } = this.props;
     return (
-      <Map
-        center={position}
-        zoom={this.state.zoom}
-        style={this.state.mapStyles}
-        onClick={this.handleMapClick}
-        ref={this.saveMap}
-      >
+        <Map
+            center={position}
+            zoom={this.state.zoom}
+            style={this.state.mapStyles}
+            onClick={this.handleMapClick}
+            ref={this.saveMap}
+        >
 
-        <TileLayer url={this.state.tileLayerUrl} />
-        <MarkersContainer markers={markers} />
-        {this.state.isMapInit && counter === 2 && <Routing map={this.map} />}
-      </Map>
+          <TileLayer url={this.state.tileLayerUrl} />
+          <MarkersContainer markers={markers} />
+          {this.state.isMapInit && counter === 2 && <Routing map={this.map} />}
+        </Map>
     );
   }
 }
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      createMarker
-    },
-    dispatch
-  );
+    bindActionCreators(
+        {
+          createMarker
+        },
+        dispatch
+    );
 
 const mapStateToProps = state => {
   return {
