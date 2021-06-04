@@ -6,7 +6,7 @@ import { Map as ImmutableMap } from 'immutable';
 import { connect } from 'react-redux';
 
 import { deleteMarker } from '../../actions';
-import ViewPopup from '../../components/ViewPopup';
+import ViewPopup from '../ViewPopup';
 import EditContainer from '../EditContainer';
 
 class PopupContainer extends Component {
