@@ -18,13 +18,6 @@ const ViewPopup = props => {
       <div className="popup-title-container">
         <h2>{props.markerData.get('title')}</h2>
       </div>
-
-      {/* <div className="popup__position-container">
-        <p className="position">{`Position: Lat ${props.markerData
-          .get('lat')
-          .toFixed(6)} - Long ${props.markerData.get('lng').toFixed(6)}`}</p>
-      </div> */}
-
       <div className="popup-button-container">
         <button onClick={props.editMode} className="button">Edit</button>
         <button onClick={props.deleteMarker} className="button button_delete">Delete</button>

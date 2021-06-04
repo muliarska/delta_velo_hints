@@ -22,7 +22,6 @@ ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
           <Router>
-              <Redirect exact from="/" to="/login" />
               <Switch>
                   <Route path="/login">
                       <LoginView />
