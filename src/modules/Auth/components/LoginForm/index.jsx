@@ -3,6 +3,8 @@ import styles_forms from "../styles/styles_forms.module.css";
 
 import { useHistory } from 'react-router-dom';
 import React from 'react';
+import {userData} from "../data/data";
+
 
 
 function LoginForm() {
@@ -28,7 +30,16 @@ function LoginForm() {
         const {name, value} = ev.target;
         switch(name) {
             case 'email':
-                if ((value.split("@").length !== 2) || value.length < 7){
+                let isRegistered = false;
+                for (let i = 0; i < userData["users"].length; i++) {
+                    if (value === userData["users"][i]["email"]) {
+                        isRegistered = true;
+                    }
+                }
+                if (!isRegistered) {
+                    state.errors.email = "User is not registered!";
+                }
+                else if ((value.split("@").length !== 2) || value.length < 7){
                     state.errors.email = "Not valid email!";
                 }
                 else {
@@ -36,6 +47,15 @@ function LoginForm() {
                 }
                 break;
             case 'password':
+                let validPassword = false;
+                for (let i = 0; i < userData["users"].length; i++) {
+                    if (value === userData["users"][i]["password"]) {
+                        validPassword = true;
+                    }
+                }
+                if (!validPassword) {
+                    state.errors.email = "User is not registered!";
+                }
                 if (value.length < 5){
                     state.errors.password = "Password is too short!"
                 }

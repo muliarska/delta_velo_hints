@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "fs": "^0.0.1-security",
     "immutable": "^3.8.2",
+    "jsonfile": "^6.1.0",
     "leaflet": "^1.4.0",
     "leaflet-routing-machine": "^3.2.12",
     "node-sass-chokidar": "^1.5.0",
@@ -17,7 +19,8 @@
     "react-scripts": "^3.4.3",
     "redux": "^4.0.1",
     "redux-immutable": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "write-json-file": "^4.3.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -27,7 +30,8 @@
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev-server": "json-server -p 8080 db.json"
   },
   "devDependencies": {
     "redux-logger": "^3.0.6"

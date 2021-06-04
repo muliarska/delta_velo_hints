@@ -1,9 +1,11 @@
 import styles_forms from "../styles/styles_forms.module.css";
 import {useHistory} from "react-router-dom";
 import React from 'react';
+import {userData} from "../data/data";
 
 function SignUpForm() {
     let history = useHistory();
+    const fs = require('fs');
 
     let state =  {
         name: "",
@@ -17,9 +19,7 @@ function SignUpForm() {
     };
 
     const handleChange = (ev) => {
-
         const {name, value} = ev.target;
-
         state[name] = value;
     }
 
@@ -61,11 +61,17 @@ function SignUpForm() {
         event.preventDefault();
     }
 
+    const writeData = () => {
+        // write information to data.js to be signed up !
+        userData["users"].push(state);
+    }
+
     const redirectMap = () => {
         if(state.errors.email === "valid" &&
             state.errors.password === "valid" &&
             state.errors.name === "valid"
         ) {
+            writeData();
             history.push('/map');
         }
         else {
